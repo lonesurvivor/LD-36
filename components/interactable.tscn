@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://components/interactable.gd" type="Script" id=1]
+
+[node name="interactable" type="Node"]
+
+script/script = ExtResource( 1 )
+reach_distance = 50
+inspect_text = "-missing-"
+
+

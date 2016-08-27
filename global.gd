@@ -13,6 +13,12 @@ var last_scene_id = ""
 
 var inventory = {}
 
+var drag_item = null setget set_drag_item,get_drag_item
+func set_drag_item(item):
+	drag_item = item
+func get_drag_item():
+	return drag_item
+
 
 func _ready():
 	current_scene = root.get_child( root.get_child_count() -1 )
@@ -29,6 +35,10 @@ func _ready():
 	
 	current_scene.add_child(ui)
 	current_scene.add_child(player)
+	
+
+
+# scenes
 
 
 func load_scene(id):
@@ -49,6 +59,8 @@ func _load_scene(id):
 	get_tree().set_current_scene(current_scene)
 	current_scene_id = id
 	
+	
+# inventory
 
 
 func add_item(name, item):
@@ -64,3 +76,7 @@ func get_items():
 	
 func get_player():
 	return player
+	
+	
+
+		

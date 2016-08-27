@@ -6,26 +6,23 @@ var first = true
 
 var button_to_item = {}
 
-var drag_item = null
-
 func _ready():
 	if(first):
 		for i in get_children():
 			i.connect("input_event", self, "_on_click", [i.get_name()])
 		first = false
 	
-	update()
+	update()	
 	set_process(true)
 	
 func _process(delta):
 	update()
 	
 func _draw():
-	if(drag_item != null):
+	if(global.get_drag_item() != null):
 		var mp = get_viewport().get_mouse_pos()
-		draw_texture(drag_item.get_node("item").inventory_texture, Vector2(mp.x / parent.get_scale().x, mp.y / parent.get_scale().y))
+		draw_texture(global.get_drag_item().get_node("item").inventory_texture, Vector2(mp.x / parent.get_scale().x, mp.y / parent.get_scale().y))
 
-		
 		
 func update_inventory():
 	var items = global.get_items()
@@ -43,12 +40,17 @@ func update_inventory():
 		
 		
 func _on_click(ev, button):
-	if(ev.is_action_pressed("click")):
-		if(button_to_item.has(button)):
-			if(drag_item == null):
-				drag_item = global.get_items()[button_to_item[button]]
+	var di = global.get_drag_item()
+	if(button_to_item.has(button)):
+		var i = global.get_items()[button_to_item[button]]
+		if(ev.is_action_pressed("click")):
+			if(di == null):
+				global.set_drag_item(i)
 			else:
-				if(drag_item == global.get_items()[button_to_item[button]]):
-					drag_item = null
+				if(di == i):
+					global.set_drag_item(null)	
 				else:
-					pass # combine
+					i.get_node("item").interact_with(di)
+		elif(ev.is_action_pressed("right_click") ):
+			if(di == null):
+				i.get_node("item").inspect_in_inventory()

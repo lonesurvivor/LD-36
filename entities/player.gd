@@ -8,8 +8,6 @@ var visible = true
 
 var jumped = false
 
-var life = 100
-
 func _ready():
 	set_process(true)
 	
@@ -41,10 +39,12 @@ func _process(delta):
 func handle_input():
 	if(Input.is_action_pressed("ui_left")):
 		movement.move(Vector2(-1,0))
-		set_scale(Vector2(-1,1))
+		get_node("sprite").set_scale(Vector2(-1,1))
+		get_node("collision").set_scale(Vector2(-1,1))
 	elif(Input.is_action_pressed("ui_right")):
 		movement.move(Vector2(1,0))
-		set_scale(Vector2(1,1))
+		get_node("sprite").set_scale(Vector2(1,1))
+		get_node("collision").set_scale(Vector2(-1,1))
 	else:
 		movement.move(Vector2(0,0))
 		
@@ -55,9 +55,6 @@ func handle_input():
 	else:
 		jumped = false
 
-func hit(by):
-	if(invincible == 0):
-		movement.knockback(sign(get_pos().x - by.get_pos().x) * 300)
-		invincible = 1
-		if(by.get("touch_damage")):
-			life -= by.touch_damage
+
+func talk(text):
+	get_node("talkbox").set_text(text)
