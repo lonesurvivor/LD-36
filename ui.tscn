@@ -1,0 +1,327 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://ui.gd" type="Script" id=1]
+[ext_resource path="res://inventory.gd" type="Script" id=2]
+[ext_resource path="res://images/slot.png" type="Texture" id=3]
+
+[node name="ui" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 3, 3 )
+script/script = ExtResource( 1 )
+
+[node name="inventory" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 2 )
+
+[node name="0" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 122.0
+margin/right = 132.0
+margin/bottom = 154.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/0"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+stretch_mode = 0
+
+[node name="1" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 132.0
+margin/top = 122.0
+margin/right = 164.0
+margin/bottom = 154.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+stretch_mode = 0
+
+[node name="2" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 164.0
+margin/top = 122.0
+margin/right = 196.0
+margin/bottom = 154.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -32.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 32.0
+stretch_mode = 0
+
+[node name="3" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 196.0
+margin/top = 122.0
+margin/right = 228.0
+margin/bottom = 154.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/3"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -64.0
+margin/top = 0.0
+margin/right = -32.0
+margin/bottom = 32.0
+stretch_mode = 0
+
+[node name="4" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 228.0
+margin/top = 122.0
+margin/right = 260.0
+margin/bottom = 154.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/4"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -96.0
+margin/top = 0.0
+margin/right = -64.0
+margin/bottom = 32.0
+stretch_mode = 0
+
+[node name="5" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 154.0
+margin/right = 132.0
+margin/bottom = 186.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/5"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 32.0
+margin/top = -32.0
+margin/right = 64.0
+margin/bottom = 0.0
+stretch_mode = 0
+
+[node name="6" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 132.0
+margin/top = 154.0
+margin/right = 164.0
+margin/bottom = 186.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/6"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -32.0
+margin/right = 32.0
+margin/bottom = 0.0
+stretch_mode = 0
+
+[node name="7" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 164.0
+margin/top = 154.0
+margin/right = 196.0
+margin/bottom = 186.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/7"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -32.0
+margin/top = -32.0
+margin/right = 0.0
+margin/bottom = 0.0
+stretch_mode = 0
+
+[node name="8" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 196.0
+margin/top = 154.0
+margin/right = 228.0
+margin/bottom = 186.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/8"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -64.0
+margin/top = -32.0
+margin/right = -32.0
+margin/bottom = 0.0
+stretch_mode = 0
+
+[node name="9" type="TextureButton" parent="inventory"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 228.0
+margin/top = 154.0
+margin/right = 260.0
+margin/bottom = 186.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+
+[node name="icon" type="TextureFrame" parent="inventory/9"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -96.0
+margin/top = -32.0
+margin/right = -64.0
+margin/bottom = 0.0
+stretch_mode = 0
+
+

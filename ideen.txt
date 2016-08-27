@@ -1,0 +1,36 @@
+- sidescroller
+- adventure
+- kleiner roboter
+
+- items:
+	- axt
+	- säge 
+	- holz
+	- holzkohle (sprit)
+	
+	
+	
+implement:
+
+- persistent multiple scenes
+- inventory system
+- ui for inventory
+	
+----------
+
+sidescroller
+shooter
+kleiner roboter sucht nach öl
+brennstoff und wasser als antrieb, hp und munition
+jetpack mit dampf oder doppelsprung
+enterhaken
+ODER: kann an wändern und decken rollen
+
+kann glühende kohlen schießen (braucht viel brennstoff) oder dampfstrahl (braucht viel wasser)
+wasser auffüllen an wasser
+brennstoff wird von gegnern gedroppt?
+
+kleinere räume
+
+gegner: 
+	chasende fliegen

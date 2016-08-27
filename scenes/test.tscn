@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://tilesets/platforms.xml" type="TileSet" id=1]
+[ext_resource path="res://entities/exits.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="root" type="Node"]
+
+[node name="blocks" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -196608, 3, -131072, 3, -65536, 3, 0, 3, 21, 7, 22, 8, 23, 8, 24, 8, 65536, 3, 65557, 7, 65558, 8, 65559, 8, 65560, 8, 131072, 3, 131093, 7, 131094, 8, 131095, 8, 131096, 8, 196608, 3, 196629, 7, 196630, 8, 196631, 8, 196632, 8, 262144, 9, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 1, 262153, 2, 262165, 7, 262166, 8, 262167, 8, 262168, 8, 327680, 8, 327681, 8, 327682, 8, 327683, 8, 327684, 8, 327685, 8, 327686, 8, 327687, 8, 327688, 8, 327689, 3, 327701, 7, 327702, 8, 327703, 8, 327704, 8, 393216, 8, 393217, 8, 393218, 8, 393219, 8, 393220, 8, 393221, 8, 393222, 8, 393223, 8, 393224, 8, 393225, 9, 393226, 1, 393227, 1, 393228, 1, 393229, 1, 393230, 1, 393231, 1, 393232, 1, 393233, 1, 393234, 1, 393235, 1, 393236, 1, 393237, 10, 393238, 8, 393239, 8, 393240, 8, 458752, 8, 458753, 8, 458754, 8, 458755, 8, 458756, 8, 458757, 8, 458758, 8, 458759, 8, 458760, 8, 458761, 8, 458762, 8, 458763, 8, 458764, 8, 458765, 8, 458766, 8, 458767, 8, 458768, 8, 458769, 8, 458770, 8, 458771, 8, 458772, 8, 458773, 8, 458774, 8, 458775, 8, 458776, 8, 524288, 8, 524289, 8, 524290, 8, 524291, 8, 524292, 8, 524293, 8, 524294, 8, 524295, 8, 524296, 8, 524297, 8, 524298, 8, 524299, 8, 524300, 8, 524301, 8, 524302, 8, 524303, 8, 524304, 8, 524305, 8, 524306, 8, 524307, 8, 524308, 8, 524309, 8, 524310, 8, 524311, 8, 524312, 8 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="camera" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.3, 0.3 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.0
+drag_margin/top = 0.0
+drag_margin/right = 0.0
+drag_margin/bottom = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="exits" parent="." instance=ExtResource( 2 )]
+
+[node name="main" type="Area2D" parent="exits"]
+
+transform/pos = Vector2( 218, 91 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="exits/main"]
+
+build_mode = 0
+polygon = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="entry_position" type="Position2D" parent="exits/main"]
+
+transform/pos = Vector2( 100, -11 )
+
+
