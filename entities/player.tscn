@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://entities/player.gd" type="Script" id=1]
-[ext_resource path="res://images/player.png" type="Texture" id=2]
+[ext_resource path="res://entities/player.png" type="Texture" id=2]
 [ext_resource path="res://components/movement.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/arial.fnt" type="BitmapFont" id=4]
 
@@ -10,17 +10,22 @@
 custom_solver_bias = 0.0
 points = Vector2Array( -6, 12, -6, -12, 6, -12, 6, 12 )
 
+[sub_resource type="ColorRamp" id=5]
+
+offsets = FloatArray( 0, 0.99639, 1 )
+colors = ColorArray( 0, 0, 0, 1, 0, 0, 0, 0.0397112, 1, 1, 1, 0 )
+
 [sub_resource type="Animation" id=2]
 
 resource/name = "idle"
-length = 1.0
+length = 0.4
 loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 1 ] }
+tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ 3, 4 ] }
 
 [sub_resource type="Animation" id=3]
 
@@ -32,7 +37,7 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 3 ] }
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 5 ] }
 
 [sub_resource type="Animation" id=4]
 
@@ -52,20 +57,48 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -1, 0 )
 shapes/0/trigger = false
 collision/layers = 1
-collision/mask = 1
+collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
-hframes = 4
-frame = 1
+hframes = 6
+frame = 4
 region_rect = Rect2( 0, 0, 16, 24 )
+
+[node name="particles" type="Particles2D" parent="sprite"]
+
+transform/pos = Vector2( -4.94494, -10.4014 )
+config/amount = 64
+config/lifetime = 2.0
+config/time_scale = 3.0
+config/local_space = false
+config/explosiveness = 0.2
+params/direction = 180.0
+params/spread = 10.0
+params/linear_velocity = 10.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 2.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.2
+color/color = Color( 0, 0, 0, 1 )
+color/color_ramp = SubResource( 5 )
 
 [node name="movement" parent="." instance=ExtResource( 3 )]
 
-jump_speed = 250
+jump_speed = 280
 
 [node name="collision" type="CollisionPolygon2D" parent="."]
 

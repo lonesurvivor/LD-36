@@ -2,6 +2,7 @@ extends Node
 
 onready var parent = get_node("..")
 onready var global = get_node("/root/global")
+onready var interactor = get_node("/root/interactor")
 
 export var reach_distance = 50
 export var inspect_text = "-missing-"
@@ -34,6 +35,8 @@ func _on_input(ev):
 					interact()
 				else:
 					interact_with(di, true)
+			else:
+				global.get_player().talk("i can't reach it!")
 		elif(ev.is_action_pressed("right_click")):
 			inspect()
 		
@@ -48,8 +51,8 @@ func interact():
 func interact_with(other, on_world = false):
 	if(parent.has_method("interact_with")):
 		parent.interact_with(other, on_world)
-	elif(parent.has_node("item")):
-		parent.get_node("item").interact_with(other, on_world)
+	else:
+		interactor.interact(parent, other, on_world)
 		
 func inspect():
 	global.get_player().talk(inspect_text)

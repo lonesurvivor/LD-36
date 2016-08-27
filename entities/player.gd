@@ -40,9 +40,17 @@ func handle_input():
 	elif(Input.is_action_pressed("ui_right")):
 		movement.move(Vector2(1,0))
 		get_node("sprite").set_scale(Vector2(1,1))
-		get_node("collision").set_scale(Vector2(-1,1))
+		get_node("collision").set_scale(Vector2(1,1))
 	else:
 		movement.move(Vector2(0,0))
+		
+	
+	if(Input.is_action_pressed("ui_down")):
+		set_collision_mask_bit(1, false)
+		print("u")
+	elif(!get_collision_mask_bit(1)):
+		print("t")
+		set_collision_mask_bit(1, true)
 		
 	if(Input.is_action_pressed("ui_select")):
 		if(!jumped):

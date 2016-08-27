@@ -2,7 +2,6 @@ extends Node
 
 onready var parent = get_node("..")
 onready var global = get_node("/root/global")
-onready var interactor = get_node("/root/interactor")
 
 onready var name = parent.get_name()
 
@@ -18,9 +17,6 @@ func interact():
 	if(di == null):
 		global.add_item(parent)
 		remove_from_world()
-		
-func interact_with(other, on_world):
-	interactor.interact(parent, other, on_world)
 	
 func inspect_in_inventory():
 	global.get_player().talk(inspect_in_inventory_text)

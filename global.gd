@@ -25,17 +25,16 @@ func _ready():
 	current_scene_id = "main"
 	
 	# load all 
-	scenes_resource["test"] = ResourceLoader.load("res://scenes/test.tscn")
+	scenes_resource["house"] = ResourceLoader.load("res://scenes/house.tscn")
+	scenes_resource["village"] = ResourceLoader.load("res://scenes/village.tscn")
 	
 	
 	for i in scenes_resource:
 		scenes[i] = scenes_resource[i].instance()
 		
+	last_scene_id = "main"
 	scenes["main"] = current_scene
-	
-	current_scene.add_child(ui)
-	current_scene.add_child(player)
-	
+
 
 
 # scenes

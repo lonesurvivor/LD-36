@@ -1,36 +1,13 @@
-- sidescroller
-- adventure
-- kleiner roboter
+story: kleine dampfrobotergemeinschaft lebt abgeschieden von der welt. nur durch eine tür verbunden. schon seit langer zeit nicht mehr geöffnet. alte geschichten sagen, dass dahinter vor langer zeit eine große zivilisation gelebt hat. alles im dorf verfällt und die rohstoffe gehen zur neige, somit macht sich der spieler auf nach draußen. ...
 
-- items:
-	- axt
-	- säge 
-	- holz
-	- holzkohle (sprit)
-	
-	
-	
-implement:
+items:
 
-- persistent multiple scenes
-- inventory system
-- ui for inventory
-	
-----------
+axt, säge, holz, säge mit holz => treibstoff. säge zu benutzen am sägebock
+holzkohle? ofen
 
-sidescroller
-shooter
-kleiner roboter sucht nach öl
-brennstoff und wasser als antrieb, hp und munition
-jetpack mit dampf oder doppelsprung
-enterhaken
-ODER: kann an wändern und decken rollen
+zahnrad in mechanische tür
+zahnrad herstellen aus: metallscheibe (metallener teller)und fräßmaschine. fräßmaschine braucht kohle und wasser.
+tür braucht dampf um aufzugehen => ofen befeuern. tür muss geölt werden
 
-kann glühende kohlen schießen (braucht viel brennstoff) oder dampfstrahl (braucht viel wasser)
-wasser auffüllen an wasser
-brennstoff wird von gegnern gedroppt?
-
-kleinere räume
-
-gegner: 
-	chasende fliegen
+öl wird aus sonnenblumen hergestellt. ölroboter will sonnenblumen für öl.
+einzig verfügbare sonnenblumen gehören aber jemandem. => weglocken

@@ -26,7 +26,6 @@ func _draw():
 		
 func update_inventory():
 	var items = global.get_items()
-	
 	for i in get_children():
 		i.get_node("icon").set_texture(null)
 	button_to_item = {}

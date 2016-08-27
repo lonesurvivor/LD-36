@@ -59,7 +59,8 @@ func interact(i1, i2, on_world):
 		else:
 			player_talk("i should'nt break down the axe with the tree")
 			
-		
+	elif(check_match("wood", "robot")):
+		player_talk("robots dont like wood")
 
 
 	global.set_drag_item(null)

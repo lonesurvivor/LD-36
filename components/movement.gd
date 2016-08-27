@@ -75,6 +75,7 @@ func jump_state(delta):
 		else:
 			set_next_state("idle")
 			
+
 func _do_move(delta):
 	var by = Vector2(0,0)
 
@@ -99,7 +100,8 @@ func _do_move(delta):
 			vertical_speed = -jump_speed
 			start_jump = false
 		else:
-			vertical_speed = 0
+			if(vertical_speed > 0):
+				vertical_speed = 0
 			
 		by.y = delta * vertical_speed
 	else:

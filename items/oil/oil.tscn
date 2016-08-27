@@ -1,22 +1,21 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://components/item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/item_placeholderb.png" type="Texture" id=2]
-[ext_resource path="res://images/item_placeholder2b.png" type="Texture" id=3]
-[ext_resource path="res://components/interactable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://items/oil/oil_inv.png" type="Texture" id=2]
+[ext_resource path="res://components/interactable.tscn" type="PackedScene" id=3]
 
-[node name="wood" type="Node2D"]
+[node name="oil" type="Node2D"]
 
 [node name="item" parent="." instance=ExtResource( 1 )]
 
 inventory_texture = ExtResource( 2 )
 reach_distance = 50
 inspect_in_inventory_text = "inventory"
-is_placeable = false
+is_placeable = true
 
 [node name="sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="click_box" type="Control" parent="."]
 
@@ -29,6 +28,6 @@ margin/top = -16.0
 margin/right = 16.0
 margin/bottom = 16.0
 
-[node name="interactable" parent="." instance=ExtResource( 4 )]
+[node name="interactable" parent="." instance=ExtResource( 3 )]
 
 
