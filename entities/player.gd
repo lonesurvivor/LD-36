@@ -8,6 +8,9 @@ var visible = true
 
 var jumped = false
 
+var show_text_duration = 2
+var show_text_timer = 0
+
 func _ready():
 	set_process(true)
 	
@@ -16,19 +19,12 @@ func _process(delta):
 
 	if(movement.state != movement.prev_state):
 		get_node("anim").play(movement.state)
-		
-	if(invincible > 0):
-		invincible -= delta
-		if(blink > 0):
-			blink -= delta
-		else:
-			visible = !visible
-			blink = 0.05
+	
+	if(show_text_timer > 0):
+		show_text_timer -= delta
 	else:
-		invincible = 0
-		blink = 0
-		visible = true
-	get_node("sprite").set_opacity(visible)
+		if(has_node("talk_box")):
+			get_node("talk_box").set_text("")
 	
 	#move elsewhere?
 	if(has_node("../camera")):
@@ -57,4 +53,5 @@ func handle_input():
 
 
 func talk(text):
-	get_node("talkbox").set_text(text)
+	get_node("talk_box").set_text(text)
+	show_text_timer = show_text_duration

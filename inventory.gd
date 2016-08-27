@@ -33,7 +33,8 @@ func update_inventory():
 	
 	var pos = 0
 	for i in items:
-		get_node(str(pos) + "/icon").set_texture(items[i].get_node("item").inventory_texture)
+		var node = get_node(str(pos) + "/icon")
+		node.set_texture(items[i].get_node("item").inventory_texture)
 		button_to_item[str(pos)] = i
 		pos += 1
 		
@@ -41,7 +42,7 @@ func update_inventory():
 		
 func _on_click(ev, button):
 	var di = global.get_drag_item()
-	if(button_to_item.has(button)):
+	if(button_to_item.has(button) and ev.type == InputEvent.MOUSE_BUTTON):
 		var i = global.get_items()[button_to_item[button]]
 		if(ev.is_action_pressed("click")):
 			if(di == null):
@@ -50,7 +51,7 @@ func _on_click(ev, button):
 				if(di == i):
 					global.set_drag_item(null)	
 				else:
-					i.get_node("item").interact_with(di)
+					i.get_node("interactable").interact_with(di)
 		elif(ev.is_action_pressed("right_click") ):
 			if(di == null):
 				i.get_node("item").inspect_in_inventory()

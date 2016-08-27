@@ -62,13 +62,19 @@ func _load_scene(id):
 	
 # inventory
 
+func has_item(item):
+	return inventory.has(item.get_name())
 
-func add_item(name, item):
-	inventory[name] = item
+func add_item(item):
+	inventory[item.get_name()] = item
 	ui.update()
 	
-func remove_item(name):
+func remove_item_by_name(name):
 	inventory.erase(name)
+	ui.update()
+	
+func remove_item(item):
+	inventory.erase(item.get_name())
 	ui.update()
 
 func get_items():

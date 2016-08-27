@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://components/item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/item_placeholder.png" type="Texture" id=2]
-[ext_resource path="res://images/item_placeholder2.png" type="Texture" id=3]
+[ext_resource path="res://images/item_placeholderb.png" type="Texture" id=2]
+[ext_resource path="res://images/item_placeholder2b.png" type="Texture" id=3]
 [ext_resource path="res://components/interactable.tscn" type="PackedScene" id=4]
 
-[node name="axe" type="Node2D"]
+[node name="wood" type="Node2D"]
 
 [node name="item" parent="." instance=ExtResource( 1 )]
 
