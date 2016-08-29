@@ -9,12 +9,12 @@
 
 [node name="interactable" parent="." instance=ExtResource( 1 )]
 
+inspect_text = "Just a normal axe. Wood is an important fuel source."
+
 [node name="item" parent="." instance=ExtResource( 2 )]
 
 inventory_texture = ExtResource( 3 )
-reach_distance = 50
-inspect_in_inventory_text = "-missing-"
-is_placeable = false
+cant_taken = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -26,9 +26,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -6.0
-margin/top = -8.0
-margin/right = 8.0
+margin/left = -5.0
+margin/top = -6.0
+margin/right = 7.0
 margin/bottom = 6.0
 
 

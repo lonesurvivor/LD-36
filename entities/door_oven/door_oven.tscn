@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://components/interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/door_oven/door_oven.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D\n\nfunc update(frame):\n\tget_node(\"Sprite\").set_frame(frame)\n\t\nfunc interact():\n\tget_node(\"/root/global\").get_player().talk(\"I need to supply it with fuel and water, and repair that pipe.\")\n\n"
+
+[node name="door_oven" type="Node2D"]
+
+script/script = SubResource( 1 )
+
+[node name="interactable" parent="." instance=ExtResource( 1 )]
+
+inspect_text = "This is the power source for the entrance door. It looks cold and not functional.. I need to fuel and repair it."
+
+[node name="click_box" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -14.0
+margin/top = -14.0
+margin/right = 32.0
+margin/bottom = 31.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+hframes = 8
+region_rect = Rect2( 0, 0, 16, 24 )
+
+

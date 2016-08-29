@@ -8,7 +8,7 @@ var visible = true
 
 var jumped = false
 
-var show_text_duration = 2
+var show_text_duration = 3
 var show_text_timer = 0
 
 func _ready():
@@ -24,7 +24,8 @@ func _process(delta):
 		show_text_timer -= delta
 	else:
 		if(has_node("talk_box")):
-			get_node("talk_box").set_text("")
+			get_node("talk_box/text").set_text("")
+			get_node("talk_box").hide()
 	
 	#move elsewhere?
 	if(has_node("../camera")):
@@ -47,9 +48,7 @@ func handle_input():
 	
 	if(Input.is_action_pressed("ui_down")):
 		set_collision_mask_bit(1, false)
-		print("u")
 	elif(!get_collision_mask_bit(1)):
-		print("t")
 		set_collision_mask_bit(1, true)
 		
 	if(Input.is_action_pressed("ui_select")):
@@ -61,5 +60,7 @@ func handle_input():
 
 
 func talk(text):
-	get_node("talk_box").set_text(text)
+	global.play_sound("talk")
+	get_node("talk_box/text").set_text(text)
+	get_node("talk_box").show()
 	show_text_timer = show_text_duration

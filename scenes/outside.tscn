@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://images/background..png" type="Texture" id=1]
+[ext_resource path="res://images/text_bg.png" type="Texture" id=2]
+[ext_resource path="res://fonts/test.fnt" type="BitmapFont" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "\nextends Node\n\n\nvar story_timer = 10\nvar story_pos = 0\nvar story = [\"You did it!\", \n\t\t\t\"...\",\n\t\t\t\"What\? You expected an epic adventure\?\",\n\t\t\t\"Well, that\'s all that was doable in 48 hours.\",\n\t\t\t\"Imagine the rest yourself.\",\n\t\t\t\"Thank you for playing!\"]\n\nfunc _ready():\n\tset_process(true)\n\t\nfunc _process(delta):\n\tif(story_timer < 4):\n\t\tstory_timer += delta\n\telse:\n\t\tif(story_pos < story.size()):\n\t\t\tget_node(\"talk_box/text\").set_text(story[story_pos])\n\t\t\tstory_pos += 1\n\t\t\tstory_timer = 0\n\t\telse:\n\t\t\tset_process(false)\n\n"
+
+[node name="root" type="Node2D"]
+
+script/script = SubResource( 1 )
+
+[node name="TextureFrame" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -219.0
+margin/top = -136.0
+margin/right = 218.0
+margin/bottom = 139.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="talk_box" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -80.0
+margin/top = -32.0
+margin/right = 80.0
+margin/bottom = 32.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="text" type="Label" parent="talk_box"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 4.0
+margin/top = 4.0
+margin/right = 156.0
+margin/bottom = 59.0
+custom_fonts/font = ExtResource( 3 )
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.3, 0.3 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+

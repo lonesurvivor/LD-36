@@ -1,18 +1,17 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://components/item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/item_placeholderb.png" type="Texture" id=2]
+[ext_resource path="res://items/sunflower_seeds/sunflower_seeds.png" type="Texture" id=2]
 [ext_resource path="res://images/item_placeholder2b.png" type="Texture" id=3]
 [ext_resource path="res://components/interactable.tscn" type="PackedScene" id=4]
 
-[node name="wood" type="Node2D"]
+[node name="sunflower_seeds" type="Node2D"]
 
 [node name="item" parent="." instance=ExtResource( 1 )]
 
 inventory_texture = ExtResource( 2 )
-reach_distance = 50
 inspect_in_inventory_text = "inventory"
-is_placeable = true
+cant_taken = false
 
 [node name="sprite" type="Sprite" parent="."]
 
@@ -30,5 +29,7 @@ margin/right = 16.0
 margin/bottom = 16.0
 
 [node name="interactable" parent="." instance=ExtResource( 4 )]
+
+inspect_text = "I could make oil from them. But i need something to store it in."
 
 

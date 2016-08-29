@@ -7,19 +7,18 @@ onready var name = parent.get_name()
 
 export(Texture) var inventory_texture
 export(float) var reach_distance = 50 
+export(bool) var stays_in_world = false
 
 export var inspect_in_inventory_text = "-missing-"
 
-export(bool) var is_placeable = false
+export(bool) var cant_taken = false
 
 func interact():
 	var di = global.get_drag_item()
-	if(di == null):
+	if(di == null && !cant_taken):
 		global.add_item(parent)
-		remove_from_world()
-	
-func inspect_in_inventory():
-	global.get_player().talk(inspect_in_inventory_text)
+		if(!stays_in_world):
+			remove_from_world()
 	
 func remove_from_world():
 	if(parent.has_node("..")):

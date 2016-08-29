@@ -7,3 +7,5 @@ func _ready():
 
 func _on_start_pressed():
 	global.load_scene("house")
+	
+	

@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://components/interactable.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/player.png" type="Texture" id=2]
+[ext_resource path="res://components/interactable.gd" type="Script" id=2]
+[ext_resource path="res://entities/outside_door/outside_door_machinery.png" type="Texture" id=3]
 
-[node name="robot" type="Node2D"]
+[node name="mechanics" type="Node2D"]
 
-[node name="interactable" parent="." instance=ExtResource( 1 )]
+transform/pos = Vector2( -62, 1 )
+
+[node name="interactable" type="Node" parent="." instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+reach_distance = 50
+inspect_text = "-missing-"
 
 [node name="click_box" type="Control" parent="."]
 
@@ -20,9 +27,9 @@ margin/bottom = 12.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 region = true
-region_rect = Rect2( 0, 0, 16, 24 )
+region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="talk_box" type="Label" parent="."]
 

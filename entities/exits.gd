@@ -17,12 +17,10 @@ func _process(delta):
 		disabled -= delta
 
 func _on_enter_tree():
-	print("hi")
 	disabled = 0.1
 	var last = get_node("/root/global").last_scene_id
 	if(has_node(last + "/entry_position")):
 		get_node("/root/global").get_player().set_pos(get_node(last + "/entry_position").get_global_pos())
-		print(get_node(last + "/entry_position").get_pos())
 
 
 func _on_exit_tree():
@@ -32,4 +30,7 @@ func _on_body_enter(body, from):
 	if(disabled <= 0):
 		var target_scene = from
 		if(body.get_name() == "player"):
-				global.load_scene(target_scene)
+				if(target_scene == "outside"):
+					get_tree().change_scene("res://scenes/outside.tscn")
+				else:
+					global.load_scene(target_scene)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://components/interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/tool_holder/tool_holder.png" type="Texture" id=2]
+
+[node name="tool_holder" type="Node2D"]
+
+[node name="interactable" parent="." instance=ExtResource( 1 )]
+
+inspect_text = "Grandpa used to store our tools here...  Where is the saw\?"
+
+[node name="click_box" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -15.0
+margin/top = -15.0
+margin/right = 16.0
+margin/bottom = 9.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 24 )
+
+

@@ -44,13 +44,14 @@ func _on_click(ev, button):
 	if(button_to_item.has(button) and ev.type == InputEvent.MOUSE_BUTTON):
 		var i = global.get_items()[button_to_item[button]]
 		if(ev.is_action_pressed("click")):
+			global.play_sound("click")
 			if(di == null):
 				global.set_drag_item(i)
 			else:
 				if(di == i):
 					global.set_drag_item(null)	
 				else:
-					i.get_node("interactable").interact_with(di)
+					interactor.interact(di, i, false)
 		elif(ev.is_action_pressed("right_click") ):
 			if(di == null):
-				i.get_node("item").inspect_in_inventory()
+				interactor.inspect_in_inventory(i)

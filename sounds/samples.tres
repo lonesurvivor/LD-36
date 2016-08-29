@@ -1,0 +1,26 @@
+[gd_resource type="SampleLibrary" load_steps=11 format=1]
+
+[ext_resource path="res://sounds/click.wav" type="Sample" id=1]
+[ext_resource path="res://sounds/deny.wav" type="Sample" id=2]
+[ext_resource path="res://sounds/fall.wav" type="Sample" id=3]
+[ext_resource path="res://sounds/jump.wav" type="Sample" id=4]
+[ext_resource path="res://sounds/oven.wav" type="Sample" id=5]
+[ext_resource path="res://sounds/pickup.wav" type="Sample" id=6]
+[ext_resource path="res://sounds/steam.wav" type="Sample" id=7]
+[ext_resource path="res://sounds/talk.wav" type="Sample" id=8]
+[ext_resource path="res://sounds/talk_elder.wav" type="Sample" id=9]
+[ext_resource path="res://sounds/talk_grandpa.wav" type="Sample" id=10]
+
+[resource]
+
+samples/click = { "db":0.0, "pitch":1.0, "sample":ExtResource( 1 ) }
+samples/deny = { "db":10.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/fall = { "db":10.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/jump = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/oven = { "db":-10.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/pickup = { "db":-10.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/steam = { "db":-10.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/talk = { "db":10.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/talk_elder = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
+samples/talk_grandpa = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
+

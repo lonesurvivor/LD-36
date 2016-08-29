@@ -7,7 +7,7 @@ onready var interactor = get_node("/root/interactor")
 export var reach_distance = 50
 export var inspect_text = "-missing-"
 
-var show_text_duration = 2
+var show_text_duration = 4
 var show_text_timer = 0
 
 var first = true
@@ -24,7 +24,8 @@ func _process(delta):
 		show_text_timer -= delta
 	else:
 		if(parent.has_node("talk_box")):
-			parent.get_node("talk_box").set_text("")
+			parent.get_node("talk_box/text").set_text("")
+			parent.get_node("talk_box").hide()
 
 func _on_input(ev):
 	if(ev.type == InputEvent.MOUSE_BUTTON):
@@ -59,6 +60,14 @@ func inspect():
 	
 
 func talk(text):
+	
+	#dirty...
+	if(parent.get_name() == "elder_robot"):
+		global.play_sound("talk_elder")
+	elif(parent.get_name() == "grandpa_robot"):
+		global.play_sound("talk_grandpa")
+		
 	if(parent.has_node("talk_box")):
-		parent.get_node("talk_box").set_text(text)
+		parent.get_node("talk_box/text").set_text(text)
+		parent.get_node("talk_box").show()
 		show_text_timer = show_text_duration

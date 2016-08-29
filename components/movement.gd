@@ -97,11 +97,13 @@ func _do_move(delta):
 			
 			vertical_speed = min(vertical_speed,max_vertical_speed)
 		elif(start_jump):
+			get_node("/root/global").play_sound("jump")
 			vertical_speed = -jump_speed
 			start_jump = false
 		else:
 			if(vertical_speed > 0):
 				vertical_speed = 0
+				get_node("/root/global").play_sound("fall")
 			
 		by.y = delta * vertical_speed
 	else:

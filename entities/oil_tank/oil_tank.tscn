@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://components/interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/oil_tank/oil_tank.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D\n\nfunc interact():\n\tget_node(\"/root/global\").get_player().talk(\"It\'s empty.\")\n\n\n"
+
+[node name="oil_tank" type="Node2D"]
+
+script/script = SubResource( 1 )
+
+[node name="interactable" parent="." instance=ExtResource( 1 )]
+
+reach_distance = 80
+inspect_text = "This is our oil storage. Nowadays empty."
+
+[node name="click_box" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -32.0
+margin/top = -63.0
+margin/right = 30.0
+margin/bottom = 65.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 24 )
+
+
